@@ -1,0 +1,27 @@
+<?php
+
+use Drupal\views\Views;
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function views_flexbox_theme_registry_alter(&$theme_registry) {
+  $plugins = Views::getPluginDefinitions();
+  $path = drupal_get_path('module', 'views_flexbox');
+
+  foreach ($plugins['style'] as $style) {
+    if ($style['provider'] == 'views_flexbox') {
+      $theme = $style['theme'];
+
+      switch ($theme) {
+        case 'views_flexbox_grid':
+          $theme_registry[$theme]['preprocess functions'][] = 'template_preprocess_views_view_grid';
+          break;
+      }
+
+      $theme_registry[$theme]['path'] = $path . '/templates/' . $theme;
+      $theme_registry[$theme]['includes'][] = $theme_registry[$theme]['path'] . '/theme.inc';
+      $theme_registry[$theme]['preprocess functions'][] = 'template_preprocess_' . $theme;
+    }
+  }
+}

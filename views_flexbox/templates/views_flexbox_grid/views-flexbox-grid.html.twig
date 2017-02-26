@@ -1,0 +1,31 @@
+{#
+/**
+ * @file views-flexbox-grid.html.twig
+ * Default simple view template to display Flexbox items.
+ *
+ *
+ * - columns: Contains rows grouped by columns.
+ * - rows: Contains a nested array of rows. Each row contains an array of
+ *   columns.
+ * - column_type: Flexbox grid system column type, using Bootstrap conventions.
+ *
+ * @ingroup views_templates
+ */
+#}
+{%
+  set classes = [
+    'grid--direction-' ~ options.alignment,
+    options.padding == 'padding' ? '' : 'grid--bleed',
+    options.justify == 'flex-start' ? '' : 'grid--justify-' ~ options.justify
+  ]
+%}
+
+<div {{ attributes.addClass(classes) }}>
+  {% for row in items %}
+    {% for column in row.content %}
+      <div class="{{ column_base }} {{ col_xs }} {{ col_sm }} {{ col_md }} {{ col_lg }}">
+        {{ column.content }}
+      </div>
+    {% endfor %}
+  {% endfor %}
+</div>

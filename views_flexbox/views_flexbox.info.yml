@@ -1,0 +1,7 @@
+name: Views Flexbox
+type: module
+description: 'Flexbox views.'
+package: Views
+core: 8.x
+dependencies:
+  - views
