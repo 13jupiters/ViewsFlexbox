@@ -26,7 +26,7 @@ This is a preliminary commit. Pre-1.x versioning follows a convention x.Y.z wher
 
 ## Installation
 
-Install as usual for a drupal module, see https://www.drupal.org/docs/8/extending-drupal-8/installing-contributed-modules-find-import-enable-configure-drupal-8 for further information.
+Install as usual for a drupal module, see [Drupal.org](https://www.drupal.org/docs/8/extending-drupal-8/installing-contributed-modules-find-import-enable-configure-drupal-8) for further information.
 
 ## License
 
